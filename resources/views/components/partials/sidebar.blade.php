@@ -76,7 +76,7 @@
 
 <a href="{{ route('obat.index') }}"
     class="{{ $baseLink }} {{ request()->routeIs('obat.*') ? $active : $inactive }}">
-    <i class="fas fa-user-doctor w-4 text-center"></i>
+     <i class="fas fa-capsules w-4 text-center"></i>
     Manajemen Obat
 </a>
 
