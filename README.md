@@ -57,3 +57,35 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+---
+
+<div align="center">
+
+## 🏥 Poliklinik App - Hasil Implementasi Tugas
+
+Sistem Informasi Manajemen Klinik berbasis web yang memfasilitasi alur pendaftaran antrean pasien dan pencatatan rekam medis oleh dokter.
+
+</div>
+
+### 🛠️ Teknologi yang Digunakan
+* **Framework:** Laravel 12
+* **Asset Bundler:** Vite
+* **Database:** MySQL
+
+### 📸 Dokumentasi Fitur
+
+#### 👨‍⚕️ Sisi Dokter (Pemeriksaan & Rekam Medis)
+| Periksa Pasien | Riwayat Pasien |
+|:---:|:---:|
+| <img src="screenshots/periksa-pasien.png" width="400" alt="Periksa Pasien"> | <img src="screenshots/riwayat-pasien.png" width="400" alt="Riwayat Pasien"> |
+| *Form input catatan medis, biaya periksa, dan resep obat.* | *Daftar riwayat pemeriksaan pasien dari waktu ke waktu.* |
+
+#### 🤒 Sisi Pasien (Pendaftaran)
+| Daftar Poli |
+|:---:|
+| <img src="screenshots/daftar-poli.png" width="800" alt="Daftar Poli"> |
+| *Halaman pasien untuk memilih jadwal dokter dan mendaftar antrean poli.* |
+
+---

@@ -1,70 +1,101 @@
-<x-layouts.app>
-    <div class="container-fluid">
-        <h4 class="mb-3">Edit Jadwal Periksa</h4>
+<x-layouts.app title="Edit Jadwal Periksa">
 
-        <div class="card">
-            <div class="card-body">
-                <form action="{{ route('jadwal-periksa.update', $jadwal) }}" method="POST">
-                    @csrf
-                    @method('PUT')
+    {{-- Header --}}
+    <div class="flex items-center gap-3 mb-6">
+        <a href="{{ route('jadwal-periksa.index') }}" class="inline-flex items-center justify-center w-9 h-9 
+                  rounded-lg bg-slate-100 text-slate-500 
+                  hover:bg-slate-200 transition">
+            <i class="fas fa-arrow-left text-sm"></i>
+        </a>
 
-                    <div class="mb-3">
-                        <label for="hari" class="form-label">Hari</label>
-                        <select name="hari" id="hari"
-                                class="form-select @error('hari') is-invalid @enderror">
-                            @foreach ($hariList as $hari)
-                                <option value="{{ $hari }}"
-                                    @selected(old('hari', $jadwal->hari) === $hari)>
-                                    {{ $hari }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('hari')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+        <h2 class="text-2xl font-bold text-slate-800">
+            Edit Jadwal Periksa
+        </h2>
+    </div>
 
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="jam_mulai" class="form-label">Jam Mulai</label>
-                            <input type="time" name="jam_mulai" id="jam_mulai"
-                                   class="form-control @error('jam_mulai') is-invalid @enderror"
-                                   value="{{ old('jam_mulai', \Carbon\Carbon::parse($jadwal->jam_mulai)->format('H:i')) }}">
-                            @error('jam_mulai')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+    {{-- Card --}}
+    <div class="card bg-base-100 shadow-md rounded-2xl border border-slate-200">
+        <div class="card-body p-8">
+            <form action="{{ route('jadwal-periksa.update', $jadwalPeriksa->id) }}" method="POST">
+                @csrf
+                @method('PUT')
 
-                        <div class="col-md-6 mb-3">
-                            <label for="jam_selesai" class="form-label">Jam Selesai</label>
-                            <input type="time" name="jam_selesai" id="jam_selesai"
-                                   class="form-control @error('jam_selesai') is-invalid @enderror"
-                                   value="{{ old('jam_selesai', \Carbon\Carbon::parse($jadwal->jam_selesai)->format('H:i')) }}">
-                            @error('jam_selesai')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                {{-- Hari --}}
+                <div class="form-control mb-6">
+                    <label class="label pb-1">
+                        <span class="text-sm font-semibold text-gray-700">
+                            Hari <span class="text-red-500">*</span>
+                        </span>
+                    </label>
 
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select name="status" id="status"
-                                class="form-select @error('status') is-invalid @enderror">
-                            <option value="1" @selected((string) old('status', (int) $jadwal->status) === '1')>Aktif</option>
-                            <option value="0" @selected((string) old('status', (int) $jadwal->status) === '0')>Tidak Aktif</option>
-                        </select>
-                        @error('status')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <div class="form-text">
-                            Mengaktifkan jadwal ini akan menonaktifkan jadwal Anda yang lain.
-                        </div>
-                    </div>
+                    <select name="hari" id="hari"
+                        class="select select-bordered border-2 px-4 w-full rounded-lg @error('hari') select-error @enderror"
+                        required>
+                        <option value="">Pilih Hari</option>
+                        @foreach (['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] as $day)
+                            <option value="{{ $day }}" {{ (old('hari') ?? $jadwalPeriksa->hari) == $day ? 'selected' : '' }}>
+                                {{ $day }}
+                            </option>
+                        @endforeach
+                    </select>
 
-                    <a href="{{ route('jadwal-periksa.index') }}" class="btn btn-secondary">Batal</a>
-                    <button type="submit" class="btn btn-primary">Perbarui</button>
-                </form>
-            </div>
+                    @error('hari')
+                    <span class="text-xs text-red-500 mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Jam Mulai --}}
+                <div class="form-control mb-6">
+                    <label class="label pb-1">
+                        <span class="text-sm font-semibold text-gray-700">
+                            Jam Mulai <span class="text-red-500">*</span>
+                        </span>
+                    </label>
+
+                    <input type="time" name="jam_mulai" id="jam_mulai"
+                        value="{{ old('jam_mulai') ?? $jadwalPeriksa->jam_mulai }}"
+                        class="input input-bordered border-2 px-4 w-full rounded-lg @error('jam_mulai') input-error @enderror"
+                        required>
+
+                    @error('jam_mulai')
+                    <span class="text-xs text-red-500 mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Jam Selesai --}}
+                <div class="form-control mb-8">
+                    <label class="label pb-1">
+                        <span class="text-sm font-semibold text-gray-700">
+                            Jam Selesai <span class="text-red-500">*</span>
+                        </span>
+                    </label>
+
+                    <input type="time" name="jam_selesai" id="jam_selesai"
+                        value="{{ old('jam_selesai') ?? $jadwalPeriksa->jam_selesai }}"
+                        class="input input-bordered border-2 px-4 w-full rounded-lg @error('jam_selesai') input-error @enderror"
+                        required>
+
+                    @error('jam_selesai')
+                    <span class="text-xs text-red-500 mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Buttons --}}
+                <div class="flex gap-3">
+                    <button type="submit" class="btn bg-[#2d4499] hover:bg-[#1e2d6b]
+                                   text-white border-none rounded-lg px-6">
+                        <i class="fas fa-save"></i>
+                        Simpan
+                    </button>
+
+                    <a href="{{ route('jadwal-periksa.index') }}" class="btn btn-ghost bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-lg px-6">
+                        Batal
+                    </a>
+                </div>
+
+            </form>
+
         </div>
     </div>
+
 </x-layouts.app>
