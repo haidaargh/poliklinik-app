@@ -80,7 +80,7 @@ Sistem Informasi Manajemen Klinik berbasis web yang memfasilitasi alur pendaftar
 | Periksa Pasien | Riwayat Pasien |
 |:---:|:---:|
 | <img src="screenshots/periksa-pasien.png" width="400" alt="Periksa Pasien"> | <img src="screenshots/riwayat-pasienn.png" width="400" alt="Riwayat Pasien"> |
-| *Form input catatan medis, biaya periksa, dan resep obat.* | *Daftar riwayat pemeriksaan pasien dari waktu ke waktu.* |
+| *Form input catatan medis, biaya periksa, dan resep obat.* | *Daftar riwayat pemeriksaan pasien.* |
 
 #### 🤒 Sisi Pasien (Pendaftaran)
 | Daftar Poli |
