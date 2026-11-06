@@ -63,7 +63,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <div align="center">
 
-## 🏥 Poliklinik App - Hasil Implementasi Tugas
+## Poliklinik App - Hasil Implementasi Tugas
 
 Sistem Informasi Manajemen Klinik berbasis web yang memfasilitasi alur pendaftaran antrean pasien dan pencatatan rekam medis oleh dokter.
 
