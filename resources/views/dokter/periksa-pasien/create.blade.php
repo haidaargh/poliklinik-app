@@ -72,7 +72,9 @@
                 {{-- Buttons --}}
                 <div class="flex gap-3">
                     <button type="submit"
-                        class="btn bg-[#2d4499] hover:bg-[#1e2d6b] text-white border-none rounded-lg px-6">
+                        class="px-6 py-2.5 rounded-xl bg-primary 
+                               hover:bg-primary/90 text-white 
+                               font-semibold text-sm transition">
                         <i class="fas fa-save"></i>
                         Simpan
                     </button>

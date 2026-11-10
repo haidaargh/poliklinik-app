@@ -61,7 +61,9 @@
                                     </span>
                                 @else
                                     <a href="{{ route('periksa-pasien.create', $dp->id) }}"
-                                        class="btn btn-sm bg-amber-500 hover:bg-amber-600 text-white border-none rounded-lg px-4">
+                                        class="px-6 py-2.5 rounded-xl bg-primary 
+                               hover:bg-primary/90 text-white 
+                               font-semibold text-sm transition">
                                         <i class="fas fa-stethoscope"></i>
                                         Periksa
                                     </a>
