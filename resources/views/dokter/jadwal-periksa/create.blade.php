@@ -84,14 +84,16 @@
 
                 {{-- Buttons --}}
                 <div class="flex gap-3">
-                    <button type="submit"
-                        class="flex items-center gap-2 px-6 py-2.5 bg-[#2d4499] hover:bg-[#1e2d6b] text-white rounded-lg text-sm font-semibold transition">
-                        <i class="fas fa-save"></i>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-primary 
+                               hover:bg-primary/90 text-white 
+                               font-semibold text-sm transition">
+                        <i class="fas fa-save mr-1"></i>
                         Simpan
                     </button>
 
-                    <a href="{{ route('jadwal-periksa.index') }}"
-                        class="btn btn-ghost bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-lg px-6">
+                    <a href="{{ route('pasien.index') }}" class="px-6 py-2.5 rounded-xl bg-slate-100 
+                              hover:bg-slate-200 text-slate-600 
+                              font-semibold text-sm transition">
                         Batal
                     </a>
                 </div>

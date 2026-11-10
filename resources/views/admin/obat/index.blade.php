@@ -56,11 +56,9 @@
                                 <div class="flex justify-end gap-2">
 
                                     {{-- Edit --}}
-                                    <a href="{{ route('obat.edit', $obat->id) }}" class="inline-flex items-center gap-1 px-4 py-2 
-                                              bg-amber-500 hover:bg-amber-600 
-                                              text-white text-xs font-semibold 
-                                              rounded-lg transition">
-                                        <i class="fas fa-pen text-xs"></i>
+                                    <a href="{{ route('obat.edit', $obat->id) }}" class="btn btn-sm bg-amber-500 hover:bg-amber-600 
+                                                  text-white border-none rounded-lg px-4">
+                                        <i class="fas fa-pen-to-square"></i>
                                         Edit
                                     </a>
 
